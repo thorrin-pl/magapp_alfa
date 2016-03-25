@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="magApp" ng-controller="PageController as pageCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>MagApp - {{pageCtrl.curLabel}}</title>
+
+	<!-- Bootstrap -->
+	<link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<link href="./app/index.css" rel="stylesheet">
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href ng-click="pageCtrl.openPage(0)">MagApp</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<!--<li
+					ng-repeat="links in navArray"
+					ng-class="{ active:pageCtrl.isActive({{$index}}) }"
+					name="{{$index}}"
+					>
+						<a href ng-click="pageCtrl.openPage($index)">{{ links.label }}</a>
+					</li>-->
+		<span ng-repeat-start="links in navArray" ></span>
+            <li ng-if="links.dropdown !== undefined"
+		ng-class="{ active:pageCtrl.isActive({{$index}}) }">
+                  <a href class="dropdown-toggle" data-toggle="dropdown">
+                      {{links.label}}
+                      <b class="caret" ></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li ng-repeat="sub_element in $parent.links.dropdown">
+                          <a href ng-click="pageCtrl.openPage($index)">{{sub_element.label}}</a>
+                      </li>
+                  </ul>
+            </li>
+            <li ng-if="links.dropdown === undefined"
+		ng-class="{ active:pageCtrl.isActive({{$index}}) }">
+                  <a href ng-click="pageCtrl.openPage($index)">
+                    {{links.label}}
+                  </a>
+            </li>
+            <span ng-repeat-end></span>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<pre>
+		current page: {{pageCtrl.curPage}}
+		current html: {{pageCtrl.curHtml}}
+		{{navArray}}
+	</pre>
+	<div ng-include="pageCtrl.curHtml" ng-cloak=""></div>
+
+<!--Skrypty-->
+<script src="./assets/libs/jquery.js"></script>
+<script src="./assets/libs/angular.js"></script>
+<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="./app/index.js"></script>
+
+</body>
+</html>

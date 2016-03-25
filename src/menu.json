@@ -1,0 +1,31 @@
+[
+	{
+		"label":"Start",
+		"name":"start"
+	},
+	{
+		"label":"Generator listy",
+		"name":"list"
+	},
+	{
+		"label":"Generator kodu kreskowego",
+		"name":"barcode"
+	},
+	{
+		"label":"Social - podział grup",
+		"name":"social"
+	},
+	{
+		"label":"Dropdown",
+		"dropdown":[
+			{
+				"label":"podmenu",
+				"name":"podmenu"
+			},
+			{
+				"label":"podmenu2",
+				"name":"podmenu2"
+			}
+		]
+	}
+]
