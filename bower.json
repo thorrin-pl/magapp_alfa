@@ -1,0 +1,19 @@
+{
+  "name": "magapp",
+  "description": "Super aplikacja magazynowa.",
+  "main": "index.html",
+  "authors": [
+    "Krzysztof Różański"
+  ],
+  "license": "",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
