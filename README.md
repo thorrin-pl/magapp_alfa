@@ -13,7 +13,7 @@ Celem rozpoczęcia korzystania z projektu pobranego z tego repozytorium, wykonuj
 
 - klonujemy repozytorium na dysk
 ~~~
-git clone https://github.com/nepras/angular2_001_basic.git master
+git clone https://github.com/thorrin-pl/magapp.git master
 ~~~
 - instalujemy oprogramowanie globalne:
 ~~~
